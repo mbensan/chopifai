@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
 
   def only_admin
     unless user_signed_in? && current_user.role == "admin"
-      redirect_to root_path, notice: "No tienes permiso para realozar esta acción"
+      redirect_to root_path, notice: "No tienes permiso para realizar esta acción"
     end
   end
   
