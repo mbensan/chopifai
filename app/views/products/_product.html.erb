@@ -1,4 +1,20 @@
 <div id="<%= dom_id product %>">
+  <div class="m-2">
+    <div class="card">
+      <% if product.image == nil %>
+        <img src="/noimage.jpg" class="card-img-top" alt="...">
+      <%else%>
+        <%=image_tag product.image, class: 'card-img-top'%>
+      <%end%>
+      <div class="card-body">
+        <h5 class="card-title"><%= product.name %></h5>
+        <p class="card-text">
+          <b>$<%= product.price %></b>
+        </p>
+        <%= link_to "Ver más", product, class: 'btn btn-primary' %>
+      </div>
+    </div>
+  </div>
   <p>
     <strong>Name:</strong>
     <%= product.name %>
