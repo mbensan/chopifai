@@ -5,16 +5,13 @@
 <h1>Products</h1>
 
 <div id="products">
-  <% @products.each do |product| %>
-    <div class="row">
-      <div class="col-12 col-sm-4 col-md-3">
-        <%= render product %>
-      </div>
+  <div class="row">
+    <% @products.each do |product| %>
+    <div class="col-12 col-sm-4 col-md-3">
+      <%= render product %>
     </div>
-    <p>
-      <%= link_to "Show this product", product %>
-    </p>
   <% end %>
+  </div>
 </div>
 
 <%= link_to "New product", new_product_path %>
