@@ -1,0 +1,10 @@
+#categories_filter li {
+  text-align: center;
+}
+#categories_filter li:hover {
+  background-color: #DFC57B;
+}
+#categories_filter a {
+  text-decoration: none;
+  color: #333 !important;
+}
