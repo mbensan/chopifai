@@ -13,7 +13,7 @@
   <div class="col-3">
     <div id="categories">
       <% @categories.each do |category| %>
-        <%= render category %>
+        <%= render category %>    
         <p>
           <%= link_to "Show this category", category %>
         </p>
@@ -21,5 +21,6 @@
     </div>
   </div>
 </div>
-
+<% if user_signed_in? && current_user.role == 'admin' %>
   <%= link_to "New category", new_category_path, class: 'btn btn-primary' %>
+<% end %>
