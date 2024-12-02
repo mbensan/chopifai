@@ -8,3 +8,6 @@
   text-decoration: none;
   color: #333 !important;
 }
+#categories_filter a.selected_filter {
+  color: crimson !important;
+}

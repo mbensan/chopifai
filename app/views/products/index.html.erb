@@ -8,7 +8,8 @@
       <ul class="list-group" id="categories_filter">
         <% @categories.each do |cat| %>
           <li class="list-group-item">
-            <a href="/products?category_id=<%=cat.id%>"><%=cat.name%></a>
+            <a <% if @category_id == cat.id.to_s %>class="selected_filter"<% end %>
+             href="/products?category_id=<%=cat.id%>"><%=cat.name%></a>
           </li>
         <% end %>
       </ul>

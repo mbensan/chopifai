@@ -7,6 +7,12 @@ class ProductsController < ApplicationController
   def index
     @categories = Category.all
     @products = Product.all
+
+    # checkeamos si estamos filtrando o no por categoria
+    @category_id = params[:category_id]
+    if @category_id.present?
+      @products = @products.where(category_id: @category_id)
+    end
   end
 
   # GET /products/1 or /products/1.json
