@@ -5,6 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   
   before_create :only_one_admin
+
+  has_many :carts, dependent: :destroy
   
   private
   def only_one_admin
