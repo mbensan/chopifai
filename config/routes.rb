@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get "carts/add_item"
   resources :products
   devise_for :users
   resources :categories
@@ -13,5 +14,5 @@ Rails.application.routes.draw do
   get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
 
   # Defines the root path route ("/")
-  root "categories#index"
+  root "products#index"
 end
