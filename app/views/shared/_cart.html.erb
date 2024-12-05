@@ -3,19 +3,27 @@
     <h5 class="offcanvas-title" id="offcanvasExampleLabel">Mi Carrito</h5>
     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
   </div>
-  <div class="offcanvas-body">
-    <div>
-      Some text as placeholder. In real life you can have the elements you have chosen. Like, text, images, lists, etc.
-    </div>
-    <div class="dropdown mt-3">
-      <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
-        Dropdown button
-      </button>
-      <ul class="dropdown-menu">
-        <li><a class="dropdown-item" href="#">Action</a></li>
-        <li><a class="dropdown-item" href="#">Another action</a></li>
-        <li><a class="dropdown-item" href="#">Something else here</a></li>
-      </ul>
-    </div>
+  <div class="offcanvas-body p-2">
+    <ul class="list-group">
+      <% if user_signed_in? %>
+        <% @cart.cart_items.each do |ci| %>
+          <li class="list-group-item" aria-current="true">
+            <div class="row">       
+              <div class="col-6">
+                <%= ci.product.name %>
+              </div>
+              <div class="col-3">
+                <%= number_to_currency(ci.product.price) %>
+              </div>
+              <div class="col-3">
+                <a href="/carts/remove_item?id=<%=ci.id%>" class="btn btn-danger">
+                  <i class="bi bi-trash"></i>
+                </a>
+              </div>
+            </div>
+          </li>
+        <% end %>
+      <% end %>
+    </ul>
   </div>
 </div>

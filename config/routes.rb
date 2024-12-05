@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   post "carts/add_item"
+  get "carts/remove_item"
   resources :products
   devise_for :users
   resources :categories
