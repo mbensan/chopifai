@@ -6,7 +6,7 @@ class ProductsController < ApplicationController
   # GET /products or /products.json
   def index
     @categories = Category.all
-    @products = Product.all
+    @products = Product.order(:id)
 
     # checkeamos si estamos filtrando o no por categoria
     @category_id = params[:category_id]

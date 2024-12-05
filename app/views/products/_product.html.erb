@@ -13,9 +13,16 @@
         </p>
         <%= link_to "Ver más", product, class: 'btn btn-primary' %>
         <% if user_signed_in? %>
-          <a href="#" class="btn btn-warning" title="Añadir a carrito">
-            <i class="bi bi-cart-plus"></i>
-          </a>
+        <form action="/carts/add_item" method="post">
+          <input type="hidden" name="product_id" value="<%=product.id%>">
+          <% if product.stock > 0 %>
+            <button type="submit" class="btn btn-warning" title="Añadir a carrito">
+              <i class="bi bi-cart-plus"></i>
+            </button>
+          <% else %>
+            <i class="bi bi-cart-plus text-danger" title="Sin STOCK"></i>
+          <% end %>
+        </form>
         <% end %>
       </div>
     </div>

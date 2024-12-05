@@ -4,7 +4,19 @@ class ApplicationController < ActionController::Base
 
   before_action :configure_permitted_parameters, if: :devise_controller?
 
+  before_action :get_cart
+
   protected
+
+  def get_cart
+    if user_signed_in?
+      @cart = Cart.find_or_create_by(user_id: current_user.id, billed: false)
+      if @cart.nil?
+        @cart = user.carts.create
+      end
+    end
+  end
+
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
     devise_parameter_sanitizer.permit(:account_update, keys: [:name])
