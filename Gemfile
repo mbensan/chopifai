@@ -62,7 +62,7 @@ gem "activestorage", "~> 7.2"
 
 gem "activestorage-validator", "~> 0.4.0"
 
-gem "active_storage_validations", "~> 1.3"
+gem "active_storage_validations", "~> 1.4"
 
 gem "faker", "~> 3.5"
 
